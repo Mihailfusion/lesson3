@@ -39,17 +39,19 @@ function chooseExpenses() {
     }
 }
 chooseExpenses();
+
+
 function chooseOptExpenses() {
-    for (let i = 0; i < 3; i++) {
-        let a = prompt("Введите не обязательную статью расходов в этом месяце", 'вапвап'),
-            b = prompt("Во сколько обойдется?", 'вапвап');
-        if (a == null || b == null) {
+    for (let i = 1; i < 4; i++) {
+        let a = prompt("Введите не обязательную статью расходов в этом месяце", '');
+            
+        if (a == null) {
             alert("Заполните поля");
             console.log(a),
                 i--
-        } else if (!a.match(/^\d+$/) && (typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50) {
+        } else if (!a.match(/^\d+$/) && (typeof (a)) != null && a != '' && a.length < 50) {
             console.log(a.length);
-            appData.optionalExpenses[a] = b;
+            appData.optionalExpenses[i] = a;
         } else {
             i--,
             alert("Введите статью без использования цыфр");
