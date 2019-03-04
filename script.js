@@ -15,13 +15,13 @@ let appData = {
     budget: money,
     timeData: time,
     expenses: {},
-    optionalExpenses: "",
+    optionalExpenses: {},
     income: [],
     savings: true
 };
 
-function chooseOptExpenses() {
-    for (let i = 0; i < 3; i++)  {
+function chooseExpenses() {
+    for (let i = 0; i < 2; i++)  {
         let a = prompt("Введите обязательную статью расходов в этом месяце", 'вапвап'),
             b = prompt("Во сколько обойдется?", 'вапвап');
             if (a == null || b == null) {
@@ -36,6 +36,24 @@ function chooseOptExpenses() {
                 i--,
                 alert("Введите статью без использования цыфр");
             }
+    }
+}
+chooseExpenses();
+function chooseOptExpenses() {
+    for (let i = 0; i < 3; i++) {
+        let a = prompt("Введите не обязательную статью расходов в этом месяце", 'вапвап'),
+            b = prompt("Во сколько обойдется?", 'вапвап');
+        if (a == null || b == null) {
+            alert("Заполните поля");
+            console.log(a),
+                i--
+        } else if (!a.match(/^\d+$/) && (typeof (a)) != null && (typeof (b)) != null && a != '' && b != '' && a.length < 50) {
+            console.log(a.length);
+            appData.optionalExpenses[a] = b;
+        } else {
+            i--,
+            alert("Введите статью без использования цыфр");
+        }
     }
 }
 chooseOptExpenses();
