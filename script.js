@@ -104,8 +104,7 @@ appData.chooseIncome();
         console.log(index + 1 + '.  Способы доп. заработка:' + item );
         
     });
-
-
+ 
 for (let key in appData) {
     console.log("Наша программа включает в себя данные: " + key);
     
